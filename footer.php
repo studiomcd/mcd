@@ -36,13 +36,9 @@
 	</div>
 </div></div></section>
 
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+ 
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-    <script src="<?php bloginfo('template_url'); ?>/js/jquery-3.2.1.min.js"></script>
-
-    <!-- Include all compiled plugins (below), or include individual files as needed --> 
-    <script src="<?php bloginfo('template_url'); ?>/js/popper.min.js"></script>
-    <script src="<?php bloginfo('template_url'); ?>/js/bootstrap-4.0.0.js"></script>
 
 <script src="<?php bloginfo('template_url'); ?>/js/wow.min.js"></script>
               <script>
