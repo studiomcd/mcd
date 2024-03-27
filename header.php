@@ -62,30 +62,76 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="wrapper" class="hfeed">
-<header id="header">
-  <div id="branding"> <a href="<?php bloginfo('url'); ?>">
-    <img src="<?php echo ('logo_link') ? get_option('logo_link') : 'http://localhost/wp/wp-content/themes/mcd/img/logo-mcd.svg'; ?>" alt="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" style="width: 340px;"/>
-    
-    
-    </a> </div>
-  <nav id="menu">
-    <?php
+  <header class="container-fluid">  
+ <nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
+<img src="<?php echo ('logo_link') ? get_option('logo_link') : 'http://localhost/wp/wp-content/themes/mcd/img/logo-mcd.svg'; ?>" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" style="width:5vw;"/>
+	 
+							
+                        </a>
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#MenuSite" aria-controls="MenuSite" aria-expanded="false" aria-label="Menu">
+			
+		<span class="navbar-toggler-icon">
+			
+			<img src="<?php bloginfo('template_url'); ?>/img/ico-menu.svg" />
+			
+			</span>
+        </button>
+		
+		
+		
+		
+		
+		
+        <div class="collapse navbar-collapse" id="MenuSite">
+             <div class="navbar-nav ms-auto mt-5">
+				<div class="row"> <?php
 
-    wp_nav_menu( array(
-      'theme_location' => 'main-menu',
-      'container' => 'li',
-      'container_id' => 'nav-item',
-      'container_class' => 'main-menu',
-      'menu_id' => false,
-      'menu_class' => 'mainmenu',
-      'depth' => 3,
-      'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
-      'walker' => new WP_Bootstrap_Navwalker(),
-    ) );
-
-
-    ?>
-  </nav>
+					if(wp_is_mobile()):
+					
+					wp_nav_menu(array(
+                'theme_location'    => 'main-menu',
+		        'container'            => 'div',
+                'container_id'    => 'nav-item',
+                'container_class' => 'main-menu',
+                'menu_id'         => false,
+                'menu_class'      => 'navbar-nav',
+		        'items_wrap'           => '<ul id="%1$s" class="%2$s flex-column">%3$s</ul>',
+                'depth'           => 3,
+                'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+			    'walker'            => new WP_Bootstrap_Navwalker(),
+                ));
+					
+					else:
+	wp_nav_menu(array(
+                'theme_location'    => 'main-menu',
+		        'container'            => 'div',
+                'container_id'    => 'nav-item',
+                'container_class' => 'main-menu',
+                'menu_id'         => false,
+                'menu_class'      => 'navbar-nav',
+		        'items_wrap'           => '<div id="%1$s" class="%2$s">%3$s</div>',
+                'depth'           => 3,
+                'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+			    'walker'            => new WP_Bootstrap_Navwalker(),
+                ));
+				
+	endif;
+                ?>
+					
+					
+					
+				 </div>
+            </div>
+        </div>
+        
+        
+         <?php get_template_part('_redes_sociais'); ?>  
+        
+        
+    </div>
+</nav>   
 </header>
-<div id="container">
+<main id="container" role="main">
